@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 export default function Love() {
   const router = useRouter();
-  const startDate = new Date('2024-12-25T00:00:00'); // เปลี่ยนวันเริ่มคบได้ตรงนี้
+  const startDate = new Date('2024-12-25T00:00:00'); // วันเริ่มคบ
 
   const [daysTogether, setDaysTogether] = useState(0);
   const [timeString, setTimeString] = useState('');
@@ -13,50 +13,66 @@ export default function Love() {
   useEffect(() => {
     function updateTime() {
       const now = new Date();
-      const diff = now - startDate; // คำนวณมิลลิวินาทีที่ต่าง
+      const diff = now - startDate;
 
-      // แปลงเป็นวัน
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       setDaysTogether(days);
 
-      // แปลงเวลาที่เหลือเป็น hh:mm:ss
       const hours = now.getHours().toString().padStart(2, '0');
       const minutes = now.getMinutes().toString().padStart(2, '0');
       const seconds = now.getSeconds().toString().padStart(2, '0');
       setTimeString(`${hours}:${minutes}:${seconds}`);
     }
 
-    updateTime(); // เรียกครั้งแรก
-    const timer = setInterval(updateTime, 1000); // อัปเดตทุกวินาที
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
 
-    return () => clearInterval(timer); // เคลียร์เวลาที่ตั้งไว้ตอน unmount
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <main
-      className="flex min-h-screen flex-col items-center justify-center bg-pink-50"
-      style={{ backgroundImage: "url('/images/love-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      className="flex flex-col min-h-screen bg-pink-50"
+      style={{
+        backgroundImage: "url('/image/heart.jpg')",
+        backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+      }}
     >
-      <div className="bg-white bg-opacity-80 rounded-3xl p-10 max-w-md text-center shadow-lg">
-        <h1 className="text-3xl font-extrabold text-pink-600 mb-6">Our Anniversary ❤️</h1>
-        <p className="text-pink-700 text-lg mb-2">
-          We are together for <span className="font-bold">{daysTogether}</span> days already naa
-        </p>
-        <p className="text-pink-700 text-lg mb-2">
-         รักอ้วนมากๆเลยนาา
-        </p>
+      {/* 🔝 Navigation Bar */}
+      <nav className="w-full bg-white bg-opacity-90 shadow-md px-4 py-3 flex justify-between items-center">
         <button
           onClick={() => router.push('/')}
-          className="bg-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-700 transition"
+          className="text-pink-600 font-semibold hover:underline"
         >
-          Back to home
+          🏠 Home
         </button>
         <button
-  onClick={() => router.push('/gallery')}
-  className="mt-4 bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition"
->
-  Gallery
-</button>
+          onClick={() => router.push('/gallery')}
+          className="text-pink-600 font-semibold hover:underline"
+        >
+          📷 Gallery
+        </button>
+        <button
+          onClick={() => router.push('/movie')}
+          className="text-pink-600 font-semibold hover:underline"
+        >
+          🎥 Movie
+        </button>
+      </nav>
+
+      {/* 💌 Content */}
+      <div className="flex flex-col items-center justify-center flex-grow p-6">
+        <div className="bg-white bg-opacity-80 rounded-3xl p-10 max-w-md text-center shadow-lg">
+          <h1 className="text-3xl font-extrabold text-pink-600 mb-6">
+            Our Anniversary ❤️
+          </h1>
+          <p className="text-pink-700 text-lg mb-2">
+            We are together for <span className="font-bold">{daysTogether}</span> days already naa
+          </p>
+          <p className="text-pink-700 text-lg mb-6">รักอ้วนมากๆเลยนาา</p>
+        </div>
       </div>
     </main>
   );
