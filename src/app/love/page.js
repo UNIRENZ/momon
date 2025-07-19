@@ -72,6 +72,13 @@ export default function Love() {
             We are together for <span className="font-bold">{daysTogether}</span> days already naa
           </p>
           <p className="text-pink-700 text-lg mb-6">รักอ้วนมากๆเลยนาา</p>
+          <button
+  onClick={() => router.push('/secret')}
+  className="mt-4 bg-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-pink-700 transition"
+>
+  🔒 Secret
+</button>
+
         </div>
       </div>
     </main>

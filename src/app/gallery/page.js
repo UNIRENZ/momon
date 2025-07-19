@@ -98,57 +98,64 @@ export default function NextPage() {
   ];
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-pink-50 px-4 py-10"
-    style={{ backgroundImage: "url('/image/lovebg.jpg')",
-      backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center',
-     }}>
-      <h1 className="text-3xl font-bold text-center text-pink-600 mb-6">
-        Our Gallery 🥰
-      </h1>
+    <main
+  className="min-h-screen relative flex flex-col bg-pink-50"
+  style={{
+    backgroundImage: "url('/image/lovebg.jpg')",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  }}
+>
+  {/* Top Bar */}
+  <div className="w-full bg-pink-100/90 p-4 flex justify-between items-center shadow-md">
+    <button
+      onClick={() => router.push('/love')}
+      className="text-pink-700 font-semibold hover:underline"
+    >
+      ← Back
+    </button>
+    <h1 className="text-xl font-bold text-pink-600">Our Gallery 🥰</h1>
+    <div className="w-16" />
+  </div>
 
-      {/* กล่อง wrapper */}
-      <div className="relative w-full max-w-md">
-        <div ref={sliderInstanceRef} className="keen-slider rounded-xl">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="keen-slider__slide flex flex-col items-center bg-white p-4 rounded-xl shadow-lg min-h-[550px] gap-4"
-            >
-              <img
-                src={item.image}
-                alt={`photo-${index}`}
-                className="rounded-xl w-full h-100 object-cover"
-              />
-              <div className="text-pink-700 text-base text-center overflow-y-auto max-h-48 px-2 whitespace-pre-wrap">
-                {item.text}
-              </div>
-               <button
-          onClick={() => router.push('./love')}
-          className="bg-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-700 transition"
-        >
-          Back
-        </button>
+  {/* Slider */}
+  <div className="flex justify-center py-8 px-4">
+    <div className="w-full max-w-md">
+      <div ref={sliderInstanceRef} className="keen-slider rounded-xl">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="keen-slider__slide flex flex-col items-center bg-white p-4 rounded-xl shadow-lg min-h-[550px] gap-4"
+          >
+            <img
+              src={item.image}
+              alt={`photo-${index}`}
+              className="rounded-xl w-full h-100 object-cover"
+            />
+            <div className="text-pink-700 text-base text-center overflow-y-auto max-h-48 px-2 whitespace-pre-wrap">
+              {item.text}
             </div>
-          ))}
-        </div>
-
-        {/* ปุ่มเลื่อน */}
-        <button
-          onClick={() => slider.current?.prev()}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-pink-200 hover:bg-pink-300 text-pink-700 px-3 py-1 rounded-full shadow z-10"
-        >
-          ◀
-        </button>
-        <button
-          onClick={() => slider.current?.next()}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-pink-200 hover:bg-pink-300 text-pink-700 px-3 py-1 rounded-full shadow z-10"
-        >
-          ▶
-        </button>
-        
+          </div>
+        ))}
       </div>
-    </main>
+    </div>
+  </div>
+
+  {/* ปุ่มเลื่อนชิดขอบจอ */}
+  <button
+    onClick={() => slider.current?.prev()}
+    className="absolute left-4 top-1/2 -translate-y-1/2 bg-pink-200 hover:bg-pink-300 text-pink-700 px-4 py-2 rounded-full shadow z-10"
+  >
+    ◀
+  </button>
+  <button
+    onClick={() => slider.current?.next()}
+    className="absolute right-4 top-1/2 -translate-y-1/2 bg-pink-200 hover:bg-pink-300 text-pink-700 px-4 py-2 rounded-full shadow z-10"
+  >
+    ▶
+  </button>
+</main>
+
   );
 }
