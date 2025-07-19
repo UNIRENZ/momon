@@ -41,7 +41,7 @@ export default function Love() {
       }}
     >
       {/* 🔝 Navigation Bar */}
-      <nav className="w-full bg-white bg-opacity-90 shadow-md px-4 py-3 flex justify-between items-center">
+      <nav className="w-full bg-pink-100/90 bg-opacity-90 shadow-md px-4 py-3 flex justify-between items-center">
         <button
           onClick={() => router.push('/')}
           className="text-pink-600 font-semibold hover:underline"
@@ -73,7 +73,7 @@ export default function Love() {
           </p>
           <p className="text-pink-700 text-lg mb-6">รักอ้วนมากๆเลยนาา</p>
           <button
-  onClick={() => router.push('/secret')}
+  onClick={() => router.push('/secretpass')}
   className="mt-4 bg-pink-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-pink-700 transition"
 >
   🔒 Secret
