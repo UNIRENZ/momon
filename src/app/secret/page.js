@@ -39,7 +39,7 @@ export default function GridGalleryPage() {
             <img
               src={src}
               alt={`photo-${index}`}
-              className="w-full h-200 object-cover rounded-xl"
+              className="w-full h-185 object-cover rounded-xl"
             />
           </div>
         ))}
