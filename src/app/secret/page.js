@@ -10,7 +10,9 @@ export default function GridGalleryPage() {
     '/image/d5.jpg', '/image/d6.jpg', '/image/d7.jpg', '/image/d8.jpg',
     '/image/d9.jpg', '/image/d10.jpg', '/image/d11.jpg', '/image/d12.jpg',
     '/image/d13.jpg', '/image/d14.jpg', '/image/d15.jpg', '/image/d16.jpg',
-    '/image/d17.jpg', '/image/d18.jpg', '/image/d19.jpg','/image/d20.jpg','/image/d21.jpg','/image/d22.jpg',
+    '/image/d17.jpg', '/image/d18.jpg', '/image/d19.jpg','/image/d20.jpg','/image/d21.jpg',
+    '/image/d22.jpg','/image/d23.jpg','/image/d24.jpg','/image/d25.jpg','/image/d26.jpg',
+    '/image/d27.jpg',
   ];
 
   return (
@@ -39,7 +41,7 @@ export default function GridGalleryPage() {
             <img
               src={src}
               alt={`photo-${index}`}
-              className="w-full h-185 object-cover rounded-xl"
+              className="w-500 h-140 object-cover rounded-xl"
             />
           </div>
         ))}

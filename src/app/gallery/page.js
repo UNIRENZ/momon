@@ -94,6 +94,21 @@ export default function NextPage() {
       image: '/image/19.jpg',
       text: 'อันนี้เหมือนกัน ชั้นเห็นแล้วควยแข็งหุ่นแกน่าเย็ดอะ',
     },
+     {
+      image: '/image/20.jpg',
+      text: 'ไปกิน Hachiban กันค่าาาา',
+    },
+    
+     {
+      image: '/image/21.jpg',
+      text: 'แฟนใครเนี่ยยย สวยที่ฉุดเยยย',
+    },
+    
+     {
+      image: '/image/22.jpg',
+      text: 'เซะซี่อ่าาาาาาาา น่าโดนนน',
+    },
+    
     
   ];
 
