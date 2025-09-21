@@ -108,6 +108,11 @@ export default function NextPage() {
       image: '/image/22.jpg',
       text: 'เซะซี่อ่าาาาาาาา น่าโดนนน',
     },
+     {
+      image: '/image/23.jpg',
+      text: 'first time Siam together',
+    },
+    
     
     
   ];
